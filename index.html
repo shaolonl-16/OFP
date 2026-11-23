@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>One-Step Flow Policy: Self-Distillation for Fast Visuomotor Policies</title>
+  <meta name="description" content="One-Step Flow Policy (OFP) learns high-fidelity, single-step robot action generation through self-distillation, self-guidance, and warm-start action reuse. ECCV 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="One-Step Flow Policy | ECCV 2026">
+  <meta property="og:description" content="Self-distillation for precise visuomotor control in one generative step.">
+  <meta property="og:image" content="https://shaolonl-16.github.io/ofp/assets/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="citation_title" content="One-Step Flow Policy: Self-Distillation for Fast Visuomotor Policies">
+  <meta name="citation_author" content="Li, Shaolong">
+  <meta name="citation_author" content="Sun, Lichao">
+  <meta name="citation_author" content="Chen, Yongchao">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="European Conference on Computer Vision">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2603.12480">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Page navigation">
+      <a class="brand" href="#top" aria-label="OFP home"><span class="brand-mark" aria-hidden="true">o→</span> OFP</a>
+      <div class="nav-links"><a href="#method">Method</a><a href="#results">Results</a><a href="#vla">VLA</a><a href="#citation">Citation</a></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container" aria-labelledby="paper-title">
+      <h1 id="paper-title"><span class="title-main">One-Step Flow Policy<span class="sr-only">:</span></span><span class="title-sub">Self-Distillation for Fast Visuomotor Policies</span></h1>
+      <div class="authors">
+        <div class="author">
+          <a class="author-name" href="https://shaolonl-16.github.io/" target="_blank" rel="noopener noreferrer">Shaolong Li</a>
+          <p>University of Michigan<span>Computer Science and Engineering</span></p>
+          <img class="university-mark michigan" src="assets/logos/michigan.svg" alt="University of Michigan block M logo" width="67" height="48">
+        </div>
+        <div class="author">
+          <a class="author-name" href="https://lichao-sun.github.io/" target="_blank" rel="noopener noreferrer">Lichao Sun<sup>†</sup></a>
+          <p>Lehigh University<span class="affiliation-spacer" aria-hidden="true">&nbsp;</span></p>
+          <picture class="university-mark lehigh"><source media="(max-width: 440px)" srcset="assets/logos/lehigh-crest.png"><img src="assets/logos/lehigh.png" alt="Lehigh University crest and wordmark" width="800" height="173"></picture>
+        </div>
+        <div class="author">
+          <a class="author-name" href="https://yongchao98.github.io/YongchaoChen/" target="_blank" rel="noopener noreferrer">Yongchao Chen<sup>†</sup></a>
+          <p>Tsinghua University<span>College of AI</span></p>
+          <img class="university-mark tsinghua" src="assets/logos/tsinghua.png" alt="Tsinghua University seal" width="450" height="450">
+        </div>
+      </div>
+      <p class="corresponding">† Corresponding authors</p>
+      <div class="paper-links">
+        <a class="pill paper-link" href="https://arxiv.org/abs/2603.12480" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h6l4 4v11H5zM11 2.5v4h4M7.5 10h5M7.5 13h5"/></svg>arXiv <span aria-hidden="true">↗</span></a>
+        <button class="pill venue" type="button" aria-label="ECCV 2026 conference"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m2 7 8-4 8 4-8 4-8-4Zm3 2v5q5 4 10 0V9M18 7v7"/></svg>ECCV 2026</button>
+      </div>
+    </section>
+
+    <section class="teaser container" aria-labelledby="teaser-title">
+      <div class="teaser-copy">
+        <p class="eyebrow">Precise actions. Minimal latency.</p>
+        <h2 id="teaser-title">High-fidelity control<br>in a <em>single step.</em></h2>
+        <p>OFP learns to generate action chunks through self-distillation from scratch, without a pre-trained teacher.</p>
+        <div class="key-stats">
+          <div><strong>71.6<span>%</span></strong><span>average success<br>across 56 simulated tasks</span></div>
+          <div><strong>17.58<span> ms</span></strong><span>generation time<br>per action chunk</span></div>
+        </div>
+        <p class="speed-note"><strong>Over 100× faster</strong> action generation than 100-step DP3 and FM Policy.</p>
+      </div>
+      <figure class="teaser-figure" id="figure-1">
+        <!-- BEGIN FIGURE_1 -->
+<a class="figure-zoom" href="assets/figures/figure-1-2400.webp" data-figure="1" aria-label="Enlarge Figure 1">
+  <img src="assets/figures/figure-1-1200.webp" srcset="assets/figures/figure-1-1200.webp 1200w, assets/figures/figure-1-2400.webp 2400w" sizes="(max-width: 760px) 94vw, 580px" width="2400" height="1580" alt="Success rate versus inference time across 56 simulated tasks. OFP combines the highest average success rate with one-step inference." loading="eager" decoding="async">
+  <span class="zoom-hint" aria-hidden="true">↗</span>
+</a>
+<!-- END FIGURE_1 -->
+        <figcaption><span class="figure-label">Figure 1</span> Success rate vs. inference time. OFP attains the highest average success rate with one network evaluation (NFE = 1).</figcaption>
+      </figure>
+    </section>
+
+    <section class="abstract-section" id="abstract" aria-labelledby="abstract-title">
+      <div class="reading-width">
+        <p class="eyebrow">The idea in brief</p>
+        <h2 id="abstract-title">Abstract</h2>
+        <div class="abstract-text"><!-- BEGIN ABSTRACT -->
+<p>Generative flow and diffusion models provide the continuous, multimodal action distributions needed for high-precision robotic policies. However, their reliance on iterative sampling introduces severe inference latency, degrading control frequency and harming performance in time-sensitive manipulation. To address this problem, we propose the One-Step Flow Policy (OFP), a from-scratch self-distillation framework for high-fidelity, single-step action generation without a pre-trained teacher. OFP unifies a self-consistency loss to enforce coherent transport across time intervals, and a self-guided regularization to sharpen predictions toward high-density expert modes. In addition, a warm-start mechanism leverages temporal action correlations to minimize the generative transport distance. Evaluations across 56 diverse simulated manipulation tasks demonstrate that a one-step OFP achieves state-of-the-art results, outperforming 100-step diffusion and flow policies while accelerating action generation by over 100×. We further integrate OFP into the π<sub>0.5</sub> model on RoboTwin 2.0, where one-step OFP surpasses the original 10-step policy. These results establish OFP as a practical, scalable solution for highly accurate and low-latency robot control.</p>
+<!-- END ABSTRACT --></div>
+      </div>
+    </section>
+
+    <section class="section container" id="method" aria-labelledby="method-title">
+      <div class="section-heading"><p class="eyebrow">01 / Method</p><h2 id="method-title">Learning to get there in one step</h2><p>Two complementary training signals turn iterative flow generation into precise, one-step action prediction.</p></div>
+      <figure id="figure-2" class="wide-figure">
+        <!-- BEGIN FIGURE_2 -->
+<a class="figure-zoom" href="assets/figures/figure-2-2400.webp" data-figure="2" aria-label="Enlarge Figure 2">
+  <img src="assets/figures/figure-2-1200.webp" srcset="assets/figures/figure-2-1200.webp 1200w, assets/figures/figure-2-2400.webp 2400w" sizes="(max-width: 1160px) 94vw, 1100px" width="2400" height="1187" alt="OFP self-distillation overview: self-consistency training matches interval-averaged velocities, while self-guided training sharpens action predictions." loading="lazy" decoding="async">
+  <span class="zoom-hint" aria-hidden="true">↗</span>
+</a>
+<!-- END FIGURE_2 -->
+        <figcaption><span class="figure-label">Figure 2</span> The OFP self-distillation framework.</figcaption>
+      </figure>
+      <div class="method-notes">
+        <div><span class="note-index">a</span><div><h3>Self-consistency</h3><p>Match interval-averaged velocities across nested time intervals. This teaches the policy to make a long transport step consistent with shorter ones.</p></div></div>
+        <div><span class="note-index warm">b</span><div><h3>Self-guidance</h3><p>Use the model’s own conditional and unconditional predictions to sharpen generated actions toward high-density expert behaviors.</p></div></div>
+      </div>
+      <div class="warmstart subsection">
+        <div class="side-copy"><p class="eyebrow">A better starting point</p><h3>Reuse the plan.<br>Shorten the journey.</h3><p>The next action chunk starts with useful information from the previous prediction. Shift its unexecuted suffix, pad the final action, and add noise to form a temporal prior.</p><p>This training-free warm-start reduces the transport distance needed for one-step generation.</p></div>
+        <figure id="figure-3"><!-- BEGIN FIGURE_3 -->
+<a class="figure-zoom" href="assets/figures/figure-3-2400.webp" data-figure="3" aria-label="Enlarge Figure 3">
+  <img src="assets/figures/figure-3-1200.webp" srcset="assets/figures/figure-3-1200.webp 1200w, assets/figures/figure-3-2400.webp 2400w" sizes="(max-width: 1160px) 94vw, 1100px" width="2400" height="1159" alt="Warm-start action generation: shift the unexecuted action suffix, pad with the terminal action, add noise, and condition the next prediction on a new observation." loading="lazy" decoding="async">
+  <span class="zoom-hint" aria-hidden="true">↗</span>
+</a>
+<!-- END FIGURE_3 --><figcaption><span class="figure-label">Figure 3</span> Warm-start action reuse in receding-horizon control.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="results-section" id="results" aria-labelledby="results-title">
+      <div class="container section">
+        <div class="section-heading"><p class="eyebrow">02 / Experiments</p><h2 id="results-title">Fewer steps. Stronger results.</h2><p>OFP improves average success in both image-conditioned and pointcloud-conditioned simulation benchmarks.</p></div>
+        <article class="table-section" aria-labelledby="table-1-title">
+          <div class="table-intro"><div><p class="eyebrow">Table 1 / 2D observations</p><h3 id="table-1-title">Image-based manipulation</h3></div><p>With one generation step, OFP reaches <strong>68.3%</strong> average success across seven Adroit and DexArt tasks, exceeding both 100-step baselines.</p></div>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Table 1, image-based manipulation results. Scroll horizontally to see all columns."><!-- BEGIN TABLE_1 -->
+<table id="results-table-1">
+<caption class="sr-only">Table 1. Success rate in percent, mean ± standard deviation over three random seeds.</caption>
+<thead><tr>
+<th scope="col">Method</th>
+<th scope="col">NFE</th>
+<th scope="col">Door</th>
+<th scope="col">Hammer</th>
+<th scope="col">Pen</th>
+<th scope="col">Bucket</th>
+<th scope="col">Faucet</th>
+<th scope="col">Laptop</th>
+<th scope="col">Toilet</th>
+<th scope="col">Average</th>
+</tr></thead><tbody>
+<tr class=""><th scope="row">DP</th><td>100</td>
+<td class="">51.7<span class="uncertainty"> ± 4.0</span></td>
+<td class="">100.0<span class="uncertainty"> ± 0.0</span></td>
+<td class="">67.7<span class="uncertainty"> ± 1.2</span></td>
+<td class="best"><strong>34.7<span class="uncertainty"> ± 4.7</span></strong></td>
+<td class="">38.7<span class="uncertainty"> ± 1.5</span></td>
+<td class="">80.3<span class="uncertainty"> ± 2.9</span></td>
+<td class="">76.0<span class="uncertainty"> ± 1.7</span></td>
+<td class="">64.2<span class="uncertainty"> ± 2.3</span></td>
+</tr>
+<tr class=""><th scope="row">DP</th><td>10</td>
+<td class="">44.7<span class="uncertainty"> ± 1.5</span></td>
+<td class="">100.0<span class="uncertainty"> ± 0.0</span></td>
+<td class="">66.7<span class="uncertainty"> ± 1.5</span></td>
+<td class="">32.7<span class="uncertainty"> ± 4.0</span></td>
+<td class="">35.0<span class="uncertainty"> ± 2.6</span></td>
+<td class="">81.0<span class="uncertainty"> ± 2.6</span></td>
+<td class="">66.0<span class="uncertainty"> ± 3.6</span></td>
+<td class="">60.9<span class="uncertainty"> ± 2.3</span></td>
+</tr>
+<tr class=""><th scope="row">FM Policy</th><td>100</td>
+<td class="">63.7<span class="uncertainty"> ± 2.1</span></td>
+<td class="">100.0<span class="uncertainty"> ± 0.0</span></td>
+<td class="best"><strong>69.7<span class="uncertainty"> ± 2.1</span></strong></td>
+<td class="">31.7<span class="uncertainty"> ± 1.2</span></td>
+<td class="">40.7<span class="uncertainty"> ± 2.3</span></td>
+<td class="">84.7<span class="uncertainty"> ± 2.5</span></td>
+<td class="">79.7<span class="uncertainty"> ± 1.5</span></td>
+<td class="">67.2<span class="uncertainty"> ± 1.7</span></td>
+</tr>
+<tr class=""><th scope="row">FM Policy</th><td>10</td>
+<td class="">61.3<span class="uncertainty"> ± 3.2</span></td>
+<td class="">97.3<span class="uncertainty"> ± 3.1</span></td>
+<td class="">64.7<span class="uncertainty"> ± 3.8</span></td>
+<td class="">27.7<span class="uncertainty"> ± 2.3</span></td>
+<td class="">32.7<span class="uncertainty"> ± 3.8</span></td>
+<td class="best"><strong>87.0<span class="uncertainty"> ± 1.7</span></strong></td>
+<td class="">77.3<span class="uncertainty"> ± 1.5</span></td>
+<td class="">64.0<span class="uncertainty"> ± 2.8</span></td>
+</tr>
+<tr class="group-start"><th scope="row">CP</th><td>1</td>
+<td class="">46.3<span class="uncertainty"> ± 3.5</span></td>
+<td class="">100.0<span class="uncertainty"> ± 0.0</span></td>
+<td class="">58.7<span class="uncertainty"> ± 5.7</span></td>
+<td class="">30.7<span class="uncertainty"> ± 2.5</span></td>
+<td class="">33.3<span class="uncertainty"> ± 0.6</span></td>
+<td class="">79.0<span class="uncertainty"> ± 2.6</span></td>
+<td class="">69.7<span class="uncertainty"> ± 3.1</span></td>
+<td class="">59.7<span class="uncertainty"> ± 2.6</span></td>
+</tr>
+<tr class=""><th scope="row">OneDP</th><td>1</td>
+<td class="">53.3<span class="uncertainty"> ± 5.1</span></td>
+<td class="">100.0<span class="uncertainty"> ± 0.0</span></td>
+<td class="">64.7<span class="uncertainty"> ± 1.5</span></td>
+<td class="">32.7<span class="uncertainty"> ± 1.2</span></td>
+<td class="">40.0<span class="uncertainty"> ± 1.7</span></td>
+<td class="">76.3<span class="uncertainty"> ± 2.9</span></td>
+<td class="">76.3<span class="uncertainty"> ± 2.3</span></td>
+<td class="">63.3<span class="uncertainty"> ± 2.1</span></td>
+</tr>
+<tr class=""><th scope="row">MP1</th><td>1</td>
+<td class="">49.3<span class="uncertainty"> ± 6.0</span></td>
+<td class="">96.3<span class="uncertainty"> ± 3.5</span></td>
+<td class="">57.3<span class="uncertainty"> ± 4.9</span></td>
+<td class="">31.7<span class="uncertainty"> ± 6.7</span></td>
+<td class="">33.0<span class="uncertainty"> ± 7.5</span></td>
+<td class="">83.7<span class="uncertainty"> ± 1.5</span></td>
+<td class="">72.3<span class="uncertainty"> ± 4.6</span></td>
+<td class="">60.5<span class="uncertainty"> ± 5.0</span></td>
+</tr>
+<tr class="ours"><th scope="row">OFP (Ours)</th><td>1</td>
+<td class="best"><strong>68.3<span class="uncertainty"> ± 3.1</span></strong></td>
+<td class="best"><strong>100.0<span class="uncertainty"> ± 0.0</span></strong></td>
+<td class="">69.3<span class="uncertainty"> ± 1.5</span></td>
+<td class="">33.3<span class="uncertainty"> ± 2.5</span></td>
+<td class="best"><strong>41.0<span class="uncertainty"> ± 1.7</span></strong></td>
+<td class="">85.7<span class="uncertainty"> ± 3.5</span></td>
+<td class="best"><strong>80.7<span class="uncertainty"> ± 2.5</span></strong></td>
+<td class="best"><strong>68.3<span class="uncertainty"> ± 2.1</span></strong></td>
+</tr>
+</tbody></table>
+<!-- END TABLE_1 --></div>
+        </article>
+        <article class="table-section" aria-labelledby="table-2-title">
+          <div class="table-intro"><div><p class="eyebrow">Table 2 / 3D observations</p><h3 id="table-2-title">Pointcloud-based manipulation</h3></div><p>Across 56 tasks, OFP achieves <strong>71.6%</strong> average success, compared with 66.4% for 100-step DP3 and 59.8% for 100-step FM Policy.</p></div>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Table 2, pointcloud-based manipulation results. Scroll horizontally to see all columns."><!-- BEGIN TABLE_2 -->
+<table id="results-table-2">
+<caption class="sr-only">Table 2. Success rate in percent, mean ± standard deviation over three random seeds.</caption>
+<thead><tr>
+<th scope="col">Method</th>
+<th scope="col">NFE</th>
+<th scope="col">Adroit<small>3 tasks</small></th>
+<th scope="col">DexArt<small>4 tasks</small></th>
+<th scope="col">MetaWorld Easy<small>28 tasks</small></th>
+<th scope="col">MetaWorld Medium<small>11 tasks</small></th>
+<th scope="col">MetaWorld Hard<small>5 tasks</small></th>
+<th scope="col">MetaWorld Very Hard<small>5 tasks</small></th>
+<th scope="col">Average</th>
+</tr></thead><tbody>
+<tr class=""><th scope="row">DP3</th><td>100</td>
+<td class="">79.0<span class="uncertainty"> ± 0.6</span></td>
+<td class="">63.7<span class="uncertainty"> ± 0.6</span></td>
+<td class="">82.8<span class="uncertainty"> ± 8.0</span></td>
+<td class="">46.5<span class="uncertainty"> ± 3.8</span></td>
+<td class="">38.3<span class="uncertainty"> ± 9.6</span></td>
+<td class="">41.0<span class="uncertainty"> ± 0.6</span></td>
+<td class="">66.4<span class="uncertainty"> ± 5.7</span></td>
+</tr>
+<tr class=""><th scope="row">DP3</th><td>10</td>
+<td class="">76.0<span class="uncertainty"> ± 3.3</span></td>
+<td class="">61.5<span class="uncertainty"> ± 0.9</span></td>
+<td class="">80.8<span class="uncertainty"> ± 2.1</span></td>
+<td class="">46.2<span class="uncertainty"> ± 1.4</span></td>
+<td class="">36.3<span class="uncertainty"> ± 8.2</span></td>
+<td class="">45.3<span class="uncertainty"> ± 5.7</span></td>
+<td class="">65.2<span class="uncertainty"> ± 2.8</span></td>
+</tr>
+<tr class=""><th scope="row">FM Policy</th><td>100</td>
+<td class="">83.3<span class="uncertainty"> ± 0.7</span></td>
+<td class="">61.7<span class="uncertainty"> ± 4.2</span></td>
+<td class="">68.9<span class="uncertainty"> ± 5.7</span></td>
+<td class="">42.3<span class="uncertainty"> ± 3.8</span></td>
+<td class="best"><strong>43.6<span class="uncertainty"> ± 3.4</span></strong></td>
+<td class="">47.7<span class="uncertainty"> ± 4.5</span></td>
+<td class="">59.8<span class="uncertainty"> ± 4.6</span></td>
+</tr>
+<tr class=""><th scope="row">FM Policy</th><td>10</td>
+<td class="">80.3<span class="uncertainty"> ± 1.8</span></td>
+<td class="">60.5<span class="uncertainty"> ± 4.5</span></td>
+<td class="">66.7<span class="uncertainty"> ± 7.7</span></td>
+<td class="">41.3<span class="uncertainty"> ± 7.4</span></td>
+<td class="">40.3<span class="uncertainty"> ± 7.2</span></td>
+<td class="">46.7<span class="uncertainty"> ± 7.6</span></td>
+<td class="">57.9<span class="uncertainty"> ± 7.0</span></td>
+</tr>
+<tr class="group-start"><th scope="row">CP</th><td>1</td>
+<td class="">76.3<span class="uncertainty"> ± 4.6</span></td>
+<td class="">60.7<span class="uncertainty"> ± 3.4</span></td>
+<td class="">68.3<span class="uncertainty"> ± 1.8</span></td>
+<td class="">32.1<span class="uncertainty"> ± 4.3</span></td>
+<td class="">28.7<span class="uncertainty"> ± 5.2</span></td>
+<td class="">36.0<span class="uncertainty"> ± 2.3</span></td>
+<td class="">54.7<span class="uncertainty"> ± 2.9</span></td>
+</tr>
+<tr class=""><th scope="row">OneDP</th><td>1</td>
+<td class="">77.3<span class="uncertainty"> ± 1.8</span></td>
+<td class="">62.5<span class="uncertainty"> ± 4.1</span></td>
+<td class="">77.7<span class="uncertainty"> ± 0.5</span></td>
+<td class="">39.6<span class="uncertainty"> ± 9.2</span></td>
+<td class="">38.7<span class="uncertainty"> ± 4.4</span></td>
+<td class="">41.7<span class="uncertainty"> ± 1.6</span></td>
+<td class="">62.4<span class="uncertainty"> ± 3.0</span></td>
+</tr>
+<tr class=""><th scope="row">MP1</th><td>1</td>
+<td class="">82.0<span class="uncertainty"> ± 2.1</span></td>
+<td class="">61.0<span class="uncertainty"> ± 2.0</span></td>
+<td class="">70.5<span class="uncertainty"> ± 6.1</span></td>
+<td class="">37.9<span class="uncertainty"> ± 5.9</span></td>
+<td class="">34.3<span class="uncertainty"> ± 9.5</span></td>
+<td class="">32.3<span class="uncertainty"> ± 5.5</span></td>
+<td class="">57.4<span class="uncertainty"> ± 5.8</span></td>
+</tr>
+<tr class="ours"><th scope="row">OFP (Ours)</th><td>1</td>
+<td class="best"><strong>85.0<span class="uncertainty"> ± 4.5</span></strong></td>
+<td class="best"><strong>64.3<span class="uncertainty"> ± 2.5</span></strong></td>
+<td class="best"><strong>87.9<span class="uncertainty"> ± 4.6</span></strong></td>
+<td class="best"><strong>52.4<span class="uncertainty"> ± 5.7</span></strong></td>
+<td class="">43.3<span class="uncertainty"> ± 2.4</span></td>
+<td class="best"><strong>49.2<span class="uncertainty"> ± 0.7</span></strong></td>
+<td class="best"><strong>71.6<span class="uncertainty"> ± 4.1</span></strong></td>
+</tr>
+</tbody></table>
+<!-- END TABLE_2 --></div>
+        </article>
+        <p class="table-note">Success rate (%), mean ± standard deviation over 3 random seeds. <strong>NFE</strong>: number of function evaluations. Highlighted cells mark the best results reported in the paper. <span class="mobile-scroll-note">Swipe tables horizontally to view all columns.</span></p>
+      </div>
+    </section>
+
+    <section class="section container scaling" aria-labelledby="scaling-title">
+      <figure id="figure-4"><!-- BEGIN FIGURE_4 -->
+<a class="figure-zoom" href="assets/figures/figure-4-2400.webp" data-figure="4" aria-label="Enlarge Figure 4">
+  <img src="assets/figures/figure-4-1200.webp" srcset="assets/figures/figure-4-1200.webp 1200w, assets/figures/figure-4-2400.webp 2400w" sizes="(max-width: 760px) 94vw, 580px" width="2400" height="1588" alt="DexArt Faucet data scaling: OFP success rates are 32.7, 39.3, 45.7, and 51.0 percent with 20, 50, 100, and 150 demonstrations." loading="lazy" decoding="async">
+  <span class="zoom-hint" aria-hidden="true">↗</span>
+</a>
+<!-- END FIGURE_4 --><figcaption><span class="figure-label">Figure 4</span> Data scaling on the DexArt Faucet task.</figcaption></figure>
+      <div class="side-copy"><p class="eyebrow">03 / Data efficiency</p><h2 id="scaling-title">Effective with less.<br>Improving with more.</h2><p>OFP achieves 32.7% success with just 20 demonstrations. Performance grows steadily to 51.0% with 150 demonstrations.</p><p>In this experiment, MP1 improves initially but drops at 150 demonstrations, while OFP continues to improve.</p><div class="scaling-stat"><strong>32.7% <span aria-hidden="true">→</span> 51.0%</strong><span>20 to 150 demonstrations</span></div></div>
+    </section>
+
+    <section class="section container vla-section" id="vla" aria-labelledby="vla-title">
+      <div class="section-heading"><p class="eyebrow">04 / Scaling to VLA models</p><h2 id="vla-title">One step, even with π<sub>0.5</sub></h2><p>OFP integrates into a large vision-language-action model and retains its advantage on bimanual manipulation.</p></div>
+      <figure id="figure-5" class="wide-figure"><!-- BEGIN FIGURE_5 -->
+<a class="figure-zoom" href="assets/figures/figure-5-2400.webp" data-figure="5" aria-label="Enlarge Figure 5">
+  <img src="assets/figures/figure-5-1200.webp" srcset="assets/figures/figure-5-1200.webp 1200w, assets/figures/figure-5-2400.webp 2400w" sizes="(max-width: 1160px) 94vw, 1100px" width="2400" height="1060" alt="RoboTwin 2.0 integration with pi 0.5. OFP uses one generation step and achieves 94.7 percent average success across four tasks." loading="lazy" decoding="async">
+  <span class="zoom-hint" aria-hidden="true">↗</span>
+</a>
+<!-- END FIGURE_5 --><figcaption><span class="figure-label">Figure 5</span> OFP reaches <strong>94.7% average success</strong> across four RoboTwin 2.0 tasks. All acceleration methods use NFE = 1; the original π<sub>0.5</sub> baseline uses NFE = 10. One-step OFP outperforms the original policy on each task.</figcaption></figure>
+      <figure id="figure-6" class="task-figure"><!-- BEGIN FIGURE_6 -->
+<a class="figure-zoom" href="assets/figures/figure-6-2400.webp" data-figure="6" aria-label="Enlarge Figure 6">
+  <img src="assets/figures/figure-6-1200.webp" srcset="assets/figures/figure-6-1200.webp 1200w, assets/figures/figure-6-2400.webp 2400w" sizes="(max-width: 1160px) 94vw, 1100px" width="2400" height="587" alt="Four RoboTwin 2.0 simulation tasks: Handover Mic, Place Empty Cup, Adjust Bottle, and Beat Block Hammer." loading="lazy" decoding="async">
+  <span class="zoom-hint" aria-hidden="true">↗</span>
+</a>
+<!-- END FIGURE_6 --><figcaption><span class="figure-label">Figure 6</span> The four evaluated RoboTwin 2.0 tasks. Domain randomization varies distractors, background textures, lighting, and tabletop height to test robustness under visual changes.</figcaption></figure>
+    </section>
+
+    <section class="citation-section" id="citation" aria-labelledby="citation-title">
+      <div class="reading-width">
+        <div class="citation-heading"><div><p class="eyebrow">Reference</p><h2 id="citation-title">Citation</h2></div><button id="copy-citation" class="copy-button" type="button" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 4V3H3v9h1"/></svg><span>Copy BibTeX</span></button></div>
+        <pre tabindex="0" aria-label="BibTeX citation"><code id="bibtex">@inproceedings{li2026one,
+  title={One-step flow policy: Self-distillation for fast visuomotor policies},
+  author={Li, Shaolong and Sun, Lichao and Chen, Yongchao},
+  booktitle={European Conference on Computer Vision},
+  pages={22--39},
+  year={2026},
+  organization={Springer}
+}</code></pre>
+        <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+  <footer class="container site-footer"><p>One-Step Flow Policy <span>·</span> ECCV 2026</p><p class="credits">Design inspired by <a href="https://irnkim.github.io/poppy/" target="_blank" rel="noopener noreferrer">Poppy</a> and <a href="https://cot-vla.github.io/" target="_blank" rel="noopener noreferrer">CoT-VLA</a>.</p><a href="#top">Back to top ↑</a></footer>
+  <dialog id="figure-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-toolbar"><h2 id="dialog-title">Figure</h2><div><button id="zoom-figure" class="zoom-toggle" type="button" aria-pressed="false">Zoom in</button><a id="figure-pdf" target="_blank" rel="noopener noreferrer">Original PDF ↗</a><button id="close-dialog" type="button" aria-label="Close enlarged figure" autofocus>×</button></div></div>
+    <div class="dialog-image"><img id="enlarged-figure" alt=""></div>
+    <p id="dialog-caption"></p>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,729 @@
+{
+  "1": {
+    "columns": [
+      "Method",
+      "NFE",
+      "Door",
+      "Hammer",
+      "Pen",
+      "Bucket",
+      "Faucet",
+      "Laptop",
+      "Toilet",
+      "Average"
+    ],
+    "rows": [
+      {
+        "method": "DP",
+        "nfe": 100,
+        "values": [
+          {
+            "mean": "51.7",
+            "std": "4.0",
+            "highlight": false
+          },
+          {
+            "mean": "100.0",
+            "std": "0.0",
+            "highlight": false
+          },
+          {
+            "mean": "67.7",
+            "std": "1.2",
+            "highlight": false
+          },
+          {
+            "mean": "34.7",
+            "std": "4.7",
+            "highlight": true
+          },
+          {
+            "mean": "38.7",
+            "std": "1.5",
+            "highlight": false
+          },
+          {
+            "mean": "80.3",
+            "std": "2.9",
+            "highlight": false
+          },
+          {
+            "mean": "76.0",
+            "std": "1.7",
+            "highlight": false
+          },
+          {
+            "mean": "64.2",
+            "std": "2.3",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "DP",
+        "nfe": 10,
+        "values": [
+          {
+            "mean": "44.7",
+            "std": "1.5",
+            "highlight": false
+          },
+          {
+            "mean": "100.0",
+            "std": "0.0",
+            "highlight": false
+          },
+          {
+            "mean": "66.7",
+            "std": "1.5",
+            "highlight": false
+          },
+          {
+            "mean": "32.7",
+            "std": "4.0",
+            "highlight": false
+          },
+          {
+            "mean": "35.0",
+            "std": "2.6",
+            "highlight": false
+          },
+          {
+            "mean": "81.0",
+            "std": "2.6",
+            "highlight": false
+          },
+          {
+            "mean": "66.0",
+            "std": "3.6",
+            "highlight": false
+          },
+          {
+            "mean": "60.9",
+            "std": "2.3",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "FM Policy",
+        "nfe": 100,
+        "values": [
+          {
+            "mean": "63.7",
+            "std": "2.1",
+            "highlight": false
+          },
+          {
+            "mean": "100.0",
+            "std": "0.0",
+            "highlight": false
+          },
+          {
+            "mean": "69.7",
+            "std": "2.1",
+            "highlight": true
+          },
+          {
+            "mean": "31.7",
+            "std": "1.2",
+            "highlight": false
+          },
+          {
+            "mean": "40.7",
+            "std": "2.3",
+            "highlight": false
+          },
+          {
+            "mean": "84.7",
+            "std": "2.5",
+            "highlight": false
+          },
+          {
+            "mean": "79.7",
+            "std": "1.5",
+            "highlight": false
+          },
+          {
+            "mean": "67.2",
+            "std": "1.7",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "FM Policy",
+        "nfe": 10,
+        "values": [
+          {
+            "mean": "61.3",
+            "std": "3.2",
+            "highlight": false
+          },
+          {
+            "mean": "97.3",
+            "std": "3.1",
+            "highlight": false
+          },
+          {
+            "mean": "64.7",
+            "std": "3.8",
+            "highlight": false
+          },
+          {
+            "mean": "27.7",
+            "std": "2.3",
+            "highlight": false
+          },
+          {
+            "mean": "32.7",
+            "std": "3.8",
+            "highlight": false
+          },
+          {
+            "mean": "87.0",
+            "std": "1.7",
+            "highlight": true
+          },
+          {
+            "mean": "77.3",
+            "std": "1.5",
+            "highlight": false
+          },
+          {
+            "mean": "64.0",
+            "std": "2.8",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "CP",
+        "nfe": 1,
+        "values": [
+          {
+            "mean": "46.3",
+            "std": "3.5",
+            "highlight": false
+          },
+          {
+            "mean": "100.0",
+            "std": "0.0",
+            "highlight": false
+          },
+          {
+            "mean": "58.7",
+            "std": "5.7",
+            "highlight": false
+          },
+          {
+            "mean": "30.7",
+            "std": "2.5",
+            "highlight": false
+          },
+          {
+            "mean": "33.3",
+            "std": "0.6",
+            "highlight": false
+          },
+          {
+            "mean": "79.0",
+            "std": "2.6",
+            "highlight": false
+          },
+          {
+            "mean": "69.7",
+            "std": "3.1",
+            "highlight": false
+          },
+          {
+            "mean": "59.7",
+            "std": "2.6",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "OneDP",
+        "nfe": 1,
+        "values": [
+          {
+            "mean": "53.3",
+            "std": "5.1",
+            "highlight": false
+          },
+          {
+            "mean": "100.0",
+            "std": "0.0",
+            "highlight": false
+          },
+          {
+            "mean": "64.7",
+            "std": "1.5",
+            "highlight": false
+          },
+          {
+            "mean": "32.7",
+            "std": "1.2",
+            "highlight": false
+          },
+          {
+            "mean": "40.0",
+            "std": "1.7",
+            "highlight": false
+          },
+          {
+            "mean": "76.3",
+            "std": "2.9",
+            "highlight": false
+          },
+          {
+            "mean": "76.3",
+            "std": "2.3",
+            "highlight": false
+          },
+          {
+            "mean": "63.3",
+            "std": "2.1",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "MP1",
+        "nfe": 1,
+        "values": [
+          {
+            "mean": "49.3",
+            "std": "6.0",
+            "highlight": false
+          },
+          {
+            "mean": "96.3",
+            "std": "3.5",
+            "highlight": false
+          },
+          {
+            "mean": "57.3",
+            "std": "4.9",
+            "highlight": false
+          },
+          {
+            "mean": "31.7",
+            "std": "6.7",
+            "highlight": false
+          },
+          {
+            "mean": "33.0",
+            "std": "7.5",
+            "highlight": false
+          },
+          {
+            "mean": "83.7",
+            "std": "1.5",
+            "highlight": false
+          },
+          {
+            "mean": "72.3",
+            "std": "4.6",
+            "highlight": false
+          },
+          {
+            "mean": "60.5",
+            "std": "5.0",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "OFP (Ours)",
+        "nfe": 1,
+        "values": [
+          {
+            "mean": "68.3",
+            "std": "3.1",
+            "highlight": true
+          },
+          {
+            "mean": "100.0",
+            "std": "0.0",
+            "highlight": true
+          },
+          {
+            "mean": "69.3",
+            "std": "1.5",
+            "highlight": false
+          },
+          {
+            "mean": "33.3",
+            "std": "2.5",
+            "highlight": false
+          },
+          {
+            "mean": "41.0",
+            "std": "1.7",
+            "highlight": true
+          },
+          {
+            "mean": "85.7",
+            "std": "3.5",
+            "highlight": false
+          },
+          {
+            "mean": "80.7",
+            "std": "2.5",
+            "highlight": true
+          },
+          {
+            "mean": "68.3",
+            "std": "2.1",
+            "highlight": true
+          }
+        ]
+      }
+    ]
+  },
+  "2": {
+    "columns": [
+      "Method",
+      "NFE",
+      "Adroit (3)",
+      "DexArt (4)",
+      "MetaWorld Easy (28)",
+      "MetaWorld Medium (11)",
+      "MetaWorld Hard (5)",
+      "MetaWorld Very Hard (5)",
+      "Average"
+    ],
+    "rows": [
+      {
+        "method": "DP3",
+        "nfe": 100,
+        "values": [
+          {
+            "mean": "79.0",
+            "std": "0.6",
+            "highlight": false
+          },
+          {
+            "mean": "63.7",
+            "std": "0.6",
+            "highlight": false
+          },
+          {
+            "mean": "82.8",
+            "std": "8.0",
+            "highlight": false
+          },
+          {
+            "mean": "46.5",
+            "std": "3.8",
+            "highlight": false
+          },
+          {
+            "mean": "38.3",
+            "std": "9.6",
+            "highlight": false
+          },
+          {
+            "mean": "41.0",
+            "std": "0.6",
+            "highlight": false
+          },
+          {
+            "mean": "66.4",
+            "std": "5.7",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "DP3",
+        "nfe": 10,
+        "values": [
+          {
+            "mean": "76.0",
+            "std": "3.3",
+            "highlight": false
+          },
+          {
+            "mean": "61.5",
+            "std": "0.9",
+            "highlight": false
+          },
+          {
+            "mean": "80.8",
+            "std": "2.1",
+            "highlight": false
+          },
+          {
+            "mean": "46.2",
+            "std": "1.4",
+            "highlight": false
+          },
+          {
+            "mean": "36.3",
+            "std": "8.2",
+            "highlight": false
+          },
+          {
+            "mean": "45.3",
+            "std": "5.7",
+            "highlight": false
+          },
+          {
+            "mean": "65.2",
+            "std": "2.8",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "FM Policy",
+        "nfe": 100,
+        "values": [
+          {
+            "mean": "83.3",
+            "std": "0.7",
+            "highlight": false
+          },
+          {
+            "mean": "61.7",
+            "std": "4.2",
+            "highlight": false
+          },
+          {
+            "mean": "68.9",
+            "std": "5.7",
+            "highlight": false
+          },
+          {
+            "mean": "42.3",
+            "std": "3.8",
+            "highlight": false
+          },
+          {
+            "mean": "43.6",
+            "std": "3.4",
+            "highlight": true
+          },
+          {
+            "mean": "47.7",
+            "std": "4.5",
+            "highlight": false
+          },
+          {
+            "mean": "59.8",
+            "std": "4.6",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "FM Policy",
+        "nfe": 10,
+        "values": [
+          {
+            "mean": "80.3",
+            "std": "1.8",
+            "highlight": false
+          },
+          {
+            "mean": "60.5",
+            "std": "4.5",
+            "highlight": false
+          },
+          {
+            "mean": "66.7",
+            "std": "7.7",
+            "highlight": false
+          },
+          {
+            "mean": "41.3",
+            "std": "7.4",
+            "highlight": false
+          },
+          {
+            "mean": "40.3",
+            "std": "7.2",
+            "highlight": false
+          },
+          {
+            "mean": "46.7",
+            "std": "7.6",
+            "highlight": false
+          },
+          {
+            "mean": "57.9",
+            "std": "7.0",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "CP",
+        "nfe": 1,
+        "values": [
+          {
+            "mean": "76.3",
+            "std": "4.6",
+            "highlight": false
+          },
+          {
+            "mean": "60.7",
+            "std": "3.4",
+            "highlight": false
+          },
+          {
+            "mean": "68.3",
+            "std": "1.8",
+            "highlight": false
+          },
+          {
+            "mean": "32.1",
+            "std": "4.3",
+            "highlight": false
+          },
+          {
+            "mean": "28.7",
+            "std": "5.2",
+            "highlight": false
+          },
+          {
+            "mean": "36.0",
+            "std": "2.3",
+            "highlight": false
+          },
+          {
+            "mean": "54.7",
+            "std": "2.9",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "OneDP",
+        "nfe": 1,
+        "values": [
+          {
+            "mean": "77.3",
+            "std": "1.8",
+            "highlight": false
+          },
+          {
+            "mean": "62.5",
+            "std": "4.1",
+            "highlight": false
+          },
+          {
+            "mean": "77.7",
+            "std": "0.5",
+            "highlight": false
+          },
+          {
+            "mean": "39.6",
+            "std": "9.2",
+            "highlight": false
+          },
+          {
+            "mean": "38.7",
+            "std": "4.4",
+            "highlight": false
+          },
+          {
+            "mean": "41.7",
+            "std": "1.6",
+            "highlight": false
+          },
+          {
+            "mean": "62.4",
+            "std": "3.0",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "MP1",
+        "nfe": 1,
+        "values": [
+          {
+            "mean": "82.0",
+            "std": "2.1",
+            "highlight": false
+          },
+          {
+            "mean": "61.0",
+            "std": "2.0",
+            "highlight": false
+          },
+          {
+            "mean": "70.5",
+            "std": "6.1",
+            "highlight": false
+          },
+          {
+            "mean": "37.9",
+            "std": "5.9",
+            "highlight": false
+          },
+          {
+            "mean": "34.3",
+            "std": "9.5",
+            "highlight": false
+          },
+          {
+            "mean": "32.3",
+            "std": "5.5",
+            "highlight": false
+          },
+          {
+            "mean": "57.4",
+            "std": "5.8",
+            "highlight": false
+          }
+        ]
+      },
+      {
+        "method": "OFP (Ours)",
+        "nfe": 1,
+        "values": [
+          {
+            "mean": "85.0",
+            "std": "4.5",
+            "highlight": true
+          },
+          {
+            "mean": "64.3",
+            "std": "2.5",
+            "highlight": true
+          },
+          {
+            "mean": "87.9",
+            "std": "4.6",
+            "highlight": true
+          },
+          {
+            "mean": "52.4",
+            "std": "5.7",
+            "highlight": true
+          },
+          {
+            "mean": "43.3",
+            "std": "2.4",
+            "highlight": false
+          },
+          {
+            "mean": "49.2",
+            "std": "0.7",
+            "highlight": true
+          },
+          {
+            "mean": "71.6",
+            "std": "4.1",
+            "highlight": true
+          }
+        ]
+      }
+    ]
+  }
+}

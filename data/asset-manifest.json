@@ -1,0 +1,41 @@
+{
+  "paper_sha256": "185d5e9ddb73bfa0206c3977af3cde85155f58f9b269156db3ab13e32a3c78ac",
+  "figures": {
+    "1": {
+      "source": "figs/fig_freq.pdf",
+      "sha256": "229a5bfaf43c0d6b1a214bf1985f83d21cbc2be56daa2b1ed885ec846a1eff68",
+      "width": 2400,
+      "height": 1580
+    },
+    "2": {
+      "source": "figs/fig_overview.pdf",
+      "sha256": "b2ea4aa3c569a71fbb945e90abacf6e21267ad4daef5816fa1832415aa4351ad",
+      "width": 2400,
+      "height": 1187
+    },
+    "3": {
+      "source": "figs/fig_warmstart.pdf",
+      "sha256": "0dfcd8741f21fa2c7b3eddd5b16401547c65627bb818654e06c808bfc5df46a4",
+      "width": 2400,
+      "height": 1159
+    },
+    "4": {
+      "source": "figs/fig_demo.pdf",
+      "sha256": "0d64ff74cb0fdfb97ace1e2a1da70887aa33b68d31724ba60cf526d8747994cf",
+      "width": 2400,
+      "height": 1588
+    },
+    "5": {
+      "source": "figs/fig_pi05.pdf",
+      "sha256": "8e3f268a02bdb887b4c914ebbe51cf9ec1919b4d94c7dfebb80619a354303bc5",
+      "width": 2400,
+      "height": 1060
+    },
+    "6": {
+      "source": "figs/fig_rbt.pdf",
+      "sha256": "7410d1d692df88b42f0c89a2bd128fc297ee3a995353eeb47fd786fc17a6d82f",
+      "width": 2400,
+      "height": 587
+    }
+  }
+}
