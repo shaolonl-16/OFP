@@ -13,6 +13,14 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 FIGURES = {1: "fig_freq", 2: "fig_overview", 3: "fig_warmstart", 4: "fig_demo", 5: "fig_pi05", 6: "fig_rbt"}
+DISPLAY_SIZES = {
+    1: '(max-width: 496px) calc(100vw - 36px), 460px',
+    2: '(max-width: 760px) calc(100vw - 36px), (max-width: 914px) calc(100vw - 64px), 850px',
+    3: '(max-width: 636px) calc(100vw - 36px), 600px',
+    4: '(max-width: 496px) calc(100vw - 36px), 460px',
+    5: '(max-width: 760px) calc(100vw - 36px), (max-width: 914px) calc(100vw - 64px), 850px',
+    6: '(max-width: 760px) calc(100vw - 36px), (max-width: 964px) calc(100vw - 64px), 900px',
+}
 DESCRIPTIONS = {
     1: "Success rate versus inference time across 56 simulated tasks. OFP combines the highest average success rate with one-step inference.",
     2: "OFP self-distillation overview: self-consistency training matches interval-averaged velocities, while self-guided training sharpens action predictions.",
@@ -94,7 +102,7 @@ def main():
             w, h = im.size
         manifest['figures'][str(number)] = {'source': f'figs/{name}.pdf', 'sha256': hashlib.sha256(source.read_bytes()).hexdigest(), 'width': w, 'height': h}
         loading = 'eager' if number == 1 else 'lazy'
-        sizes = '(max-width: 760px) 94vw, 580px' if number in [1, 4] else '(max-width: 1160px) 94vw, 1100px'
+        sizes = DISPLAY_SIZES[number]
         figure = f'''<a class="figure-zoom" href="assets/figures/figure-{number}-2400.webp" data-figure="{number}" aria-label="Enlarge Figure {number}">
   <img src="assets/figures/figure-{number}-1200.webp" srcset="assets/figures/figure-{number}-1200.webp 1200w, assets/figures/figure-{number}-2400.webp 2400w" sizes="{sizes}" width="{w}" height="{h}" alt="{DESCRIPTIONS[number]}" loading="{loading}" decoding="async">
   <span class="zoom-hint" aria-hidden="true">↗</span>

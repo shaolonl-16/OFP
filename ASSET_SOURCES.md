@@ -19,16 +19,9 @@
 
 The original PDFs are copied without alteration. WebP versions are rendered directly from those PDFs. The table values and their precision, uncertainty, row order, and highlighted entries are preserved from `tab:2d_results` and `tab:3d_results`. These source table blocks are bundled in `data/source-tables.tex` for comparison. Checksums are recorded in `data/asset-manifest.json`.
 
-## University marks
-
-These marks identify the authors' stated affiliations. They remain the property of their respective universities.
-
-- **University of Michigan:** original block M vector coordinates extracted from the university's [Library Design System](https://design-system.lib.umich.edu/), using the official Michigan blue (`#00274c`). The separate Library wordmark is omitted. Local asset: `assets/logos/michigan.svg`.
-- **Lehigh University:** official [crest and wordmark PNG](https://www2.lehigh.edu/themes/custom/lehigh/Lehigh-University-Logo_Brown.png), referenced by the [university homepage](https://www2.lehigh.edu/). Local asset: `assets/logos/lehigh.png`. The crest portion is also saved as `lehigh-crest.png` for the narrow mobile header, keeping the shield legible.
-- **Tsinghua University:** official seal from the [Visual Identity System](https://vi.tsinghua.edu.cn/gk/xxbz/xh/bzjbzsy.htm), [source image](https://vi.tsinghua.edu.cn/__local/8/1C/21/2F02A66E31BF084FE340463BB47_B9A95F73_185BC.jpg). Only the surrounding blank margin is trimmed. Local asset: `assets/logos/tsinghua.png`.
-
 ## Fonts and design
 
 - Inter variable font, with its bundled license under `assets/fonts/LICENSE.txt`.
 - The page's centered research header, restrained layout, and figure-focused structure are inspired by [Poppy](https://irnkim.github.io/poppy/) and [CoT-VLA](https://cot-vla.github.io/). Their research text, images, videos, and code are not copied.
-- The site favicon and layout are original code-based artwork. No generated or fabricated experimental imagery is used.
+- Affiliations are displayed as text. No university logos, project logo, or custom favicon are included.
+- No generated or fabricated experimental imagery is used.

@@ -2,9 +2,9 @@
 
 A standalone, responsive academic website for **One-Step Flow Policy: Self-Distillation for Fast Visuomotor Policies** (ECCV 2026).
 
-The page contains the author links and affiliations, university marks, arXiv link, a non-navigating ECCV 2026 button, the original abstract, Figures 1–6, Tables 1–2, and the author-provided BibTeX. Figures can be enlarged and opened as their original PDFs. Tables remain selectable text, with horizontal scrolling on small screens. Core content works without JavaScript.
+The page contains the author links and text affiliations, arXiv link, a non-navigating ECCV 2026 button, the original abstract, Figures 1–6, Tables 1–2, and the author-provided BibTeX. Figures use a compact, centered layout and can be enlarged or opened as their original PDFs. Tables remain selectable text, with horizontal scrolling on small screens. Core content works without JavaScript.
 
-All fonts, university marks, figures, and scripts are bundled locally. **No Node.js, framework, build step, or external CDN is required to publish.** Python dependencies are only needed if you regenerate the paper media.
+All fonts, figures, and scripts are bundled locally. The header uses plain OFP text, without a project logo or university logos. No custom favicon is declared or bundled; the browser supplies its default page icon. **No Node.js, framework, build step, or external CDN is required to publish.** Python dependencies are only needed if you regenerate the paper media.
 
 ## Preview locally
 
@@ -56,7 +56,6 @@ python3 -m http.server 8765 --bind 127.0.0.1
 | Title, author URLs, affiliations, arXiv URL, explanations, citation | `index.html` |
 | Colors, typography, spacing, mobile layouts | `assets/css/style.css` |
 | Figure viewer and citation-copy behavior | `assets/js/main.js` |
-| University marks | `assets/logos/` |
 | Original PDF figures and browser previews | `assets/figures/` |
 | Bundled manuscript | `assets/paper/OFP.pdf` |
 | Exact table data and source LaTeX | `data/results.json`, `data/source-tables.tex` |
@@ -93,4 +92,4 @@ Use an extracted LaTeX source directory containing `OFP.tex` and `figs/`. On Win
 
 Results are taken from the author-supplied manuscript, not from new experiments. All reported evaluations are in simulation. The 56-task benchmark and the four-task RoboTwin integration study are separate evaluations. The reported 17.58 ms is the generation latency **per action chunk**. The speed comparison is against 100-step DP3 (3225.67 ms) and FM Policy (1865.72 ms), not a claim about the end-to-end latency of the entire VLA system.
 
-The BibTeX follows the author's provided ECCV 2026 entry, including pages and organization. See `ASSET_SOURCES.md` for the mapping of paper figures to site assets and university-logo sources.
+The BibTeX follows the author's provided ECCV 2026 entry, including pages and organization. See `ASSET_SOURCES.md` for the mapping of paper figures to site assets.

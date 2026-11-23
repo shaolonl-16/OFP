@@ -18,7 +18,6 @@
   <meta name="citation_publication_date" content="2026">
   <meta name="citation_conference_title" content="European Conference on Computer Vision">
   <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2603.12480">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
@@ -27,7 +26,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="nav-inner" aria-label="Page navigation">
-      <a class="brand" href="#top" aria-label="OFP home"><span class="brand-mark" aria-hidden="true">o→</span> OFP</a>
+      <a class="brand" href="#top" aria-label="OFP home">OFP</a>
       <div class="nav-links"><a href="#method">Method</a><a href="#results">Results</a><a href="#vla">VLA</a><a href="#citation">Citation</a></div>
     </nav>
   </header>
@@ -39,17 +38,14 @@
         <div class="author">
           <a class="author-name" href="https://shaolonl-16.github.io/" target="_blank" rel="noopener noreferrer">Shaolong Li</a>
           <p>University of Michigan<span>Computer Science and Engineering</span></p>
-          <img class="university-mark michigan" src="assets/logos/michigan.svg" alt="University of Michigan block M logo" width="67" height="48">
         </div>
         <div class="author">
           <a class="author-name" href="https://lichao-sun.github.io/" target="_blank" rel="noopener noreferrer">Lichao Sun<sup>†</sup></a>
-          <p>Lehigh University<span class="affiliation-spacer" aria-hidden="true">&nbsp;</span></p>
-          <picture class="university-mark lehigh"><source media="(max-width: 440px)" srcset="assets/logos/lehigh-crest.png"><img src="assets/logos/lehigh.png" alt="Lehigh University crest and wordmark" width="800" height="173"></picture>
+          <p>Lehigh University</p>
         </div>
         <div class="author">
           <a class="author-name" href="https://yongchao98.github.io/YongchaoChen/" target="_blank" rel="noopener noreferrer">Yongchao Chen<sup>†</sup></a>
           <p>Tsinghua University<span>College of AI</span></p>
-          <img class="university-mark tsinghua" src="assets/logos/tsinghua.png" alt="Tsinghua University seal" width="450" height="450">
         </div>
       </div>
       <p class="corresponding">† Corresponding authors</p>
@@ -73,7 +69,7 @@
       <figure class="teaser-figure" id="figure-1">
         <!-- BEGIN FIGURE_1 -->
 <a class="figure-zoom" href="assets/figures/figure-1-2400.webp" data-figure="1" aria-label="Enlarge Figure 1">
-  <img src="assets/figures/figure-1-1200.webp" srcset="assets/figures/figure-1-1200.webp 1200w, assets/figures/figure-1-2400.webp 2400w" sizes="(max-width: 760px) 94vw, 580px" width="2400" height="1580" alt="Success rate versus inference time across 56 simulated tasks. OFP combines the highest average success rate with one-step inference." loading="eager" decoding="async">
+  <img src="assets/figures/figure-1-1200.webp" srcset="assets/figures/figure-1-1200.webp 1200w, assets/figures/figure-1-2400.webp 2400w" sizes="(max-width: 496px) calc(100vw - 36px), 460px" width="2400" height="1580" alt="Success rate versus inference time across 56 simulated tasks. OFP combines the highest average success rate with one-step inference." loading="eager" decoding="async">
   <span class="zoom-hint" aria-hidden="true">↗</span>
 </a>
 <!-- END FIGURE_1 -->
@@ -96,7 +92,7 @@
       <figure id="figure-2" class="wide-figure">
         <!-- BEGIN FIGURE_2 -->
 <a class="figure-zoom" href="assets/figures/figure-2-2400.webp" data-figure="2" aria-label="Enlarge Figure 2">
-  <img src="assets/figures/figure-2-1200.webp" srcset="assets/figures/figure-2-1200.webp 1200w, assets/figures/figure-2-2400.webp 2400w" sizes="(max-width: 1160px) 94vw, 1100px" width="2400" height="1187" alt="OFP self-distillation overview: self-consistency training matches interval-averaged velocities, while self-guided training sharpens action predictions." loading="lazy" decoding="async">
+  <img src="assets/figures/figure-2-1200.webp" srcset="assets/figures/figure-2-1200.webp 1200w, assets/figures/figure-2-2400.webp 2400w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 914px) calc(100vw - 64px), 850px" width="2400" height="1187" alt="OFP self-distillation overview: self-consistency training matches interval-averaged velocities, while self-guided training sharpens action predictions." loading="lazy" decoding="async">
   <span class="zoom-hint" aria-hidden="true">↗</span>
 </a>
 <!-- END FIGURE_2 -->
@@ -110,7 +106,7 @@
         <div class="side-copy"><p class="eyebrow">A better starting point</p><h3>Reuse the plan.<br>Shorten the journey.</h3><p>The next action chunk starts with useful information from the previous prediction. Shift its unexecuted suffix, pad the final action, and add noise to form a temporal prior.</p><p>This training-free warm-start reduces the transport distance needed for one-step generation.</p></div>
         <figure id="figure-3"><!-- BEGIN FIGURE_3 -->
 <a class="figure-zoom" href="assets/figures/figure-3-2400.webp" data-figure="3" aria-label="Enlarge Figure 3">
-  <img src="assets/figures/figure-3-1200.webp" srcset="assets/figures/figure-3-1200.webp 1200w, assets/figures/figure-3-2400.webp 2400w" sizes="(max-width: 1160px) 94vw, 1100px" width="2400" height="1159" alt="Warm-start action generation: shift the unexecuted action suffix, pad with the terminal action, add noise, and condition the next prediction on a new observation." loading="lazy" decoding="async">
+  <img src="assets/figures/figure-3-1200.webp" srcset="assets/figures/figure-3-1200.webp 1200w, assets/figures/figure-3-2400.webp 2400w" sizes="(max-width: 636px) calc(100vw - 36px), 600px" width="2400" height="1159" alt="Warm-start action generation: shift the unexecuted action suffix, pad with the terminal action, add noise, and condition the next prediction on a new observation." loading="lazy" decoding="async">
   <span class="zoom-hint" aria-hidden="true">↗</span>
 </a>
 <!-- END FIGURE_3 --><figcaption><span class="figure-label">Figure 3</span> Warm-start action reuse in receding-horizon control.</figcaption></figure>
@@ -318,7 +314,7 @@
     <section class="section container scaling" aria-labelledby="scaling-title">
       <figure id="figure-4"><!-- BEGIN FIGURE_4 -->
 <a class="figure-zoom" href="assets/figures/figure-4-2400.webp" data-figure="4" aria-label="Enlarge Figure 4">
-  <img src="assets/figures/figure-4-1200.webp" srcset="assets/figures/figure-4-1200.webp 1200w, assets/figures/figure-4-2400.webp 2400w" sizes="(max-width: 760px) 94vw, 580px" width="2400" height="1588" alt="DexArt Faucet data scaling: OFP success rates are 32.7, 39.3, 45.7, and 51.0 percent with 20, 50, 100, and 150 demonstrations." loading="lazy" decoding="async">
+  <img src="assets/figures/figure-4-1200.webp" srcset="assets/figures/figure-4-1200.webp 1200w, assets/figures/figure-4-2400.webp 2400w" sizes="(max-width: 496px) calc(100vw - 36px), 460px" width="2400" height="1588" alt="DexArt Faucet data scaling: OFP success rates are 32.7, 39.3, 45.7, and 51.0 percent with 20, 50, 100, and 150 demonstrations." loading="lazy" decoding="async">
   <span class="zoom-hint" aria-hidden="true">↗</span>
 </a>
 <!-- END FIGURE_4 --><figcaption><span class="figure-label">Figure 4</span> Data scaling on the DexArt Faucet task.</figcaption></figure>
@@ -329,13 +325,13 @@
       <div class="section-heading"><p class="eyebrow">04 / Scaling to VLA models</p><h2 id="vla-title">One step, even with π<sub>0.5</sub></h2><p>OFP integrates into a large vision-language-action model and retains its advantage on bimanual manipulation.</p></div>
       <figure id="figure-5" class="wide-figure"><!-- BEGIN FIGURE_5 -->
 <a class="figure-zoom" href="assets/figures/figure-5-2400.webp" data-figure="5" aria-label="Enlarge Figure 5">
-  <img src="assets/figures/figure-5-1200.webp" srcset="assets/figures/figure-5-1200.webp 1200w, assets/figures/figure-5-2400.webp 2400w" sizes="(max-width: 1160px) 94vw, 1100px" width="2400" height="1060" alt="RoboTwin 2.0 integration with pi 0.5. OFP uses one generation step and achieves 94.7 percent average success across four tasks." loading="lazy" decoding="async">
+  <img src="assets/figures/figure-5-1200.webp" srcset="assets/figures/figure-5-1200.webp 1200w, assets/figures/figure-5-2400.webp 2400w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 914px) calc(100vw - 64px), 850px" width="2400" height="1060" alt="RoboTwin 2.0 integration with pi 0.5. OFP uses one generation step and achieves 94.7 percent average success across four tasks." loading="lazy" decoding="async">
   <span class="zoom-hint" aria-hidden="true">↗</span>
 </a>
 <!-- END FIGURE_5 --><figcaption><span class="figure-label">Figure 5</span> OFP reaches <strong>94.7% average success</strong> across four RoboTwin 2.0 tasks. All acceleration methods use NFE = 1; the original π<sub>0.5</sub> baseline uses NFE = 10. One-step OFP outperforms the original policy on each task.</figcaption></figure>
       <figure id="figure-6" class="task-figure"><!-- BEGIN FIGURE_6 -->
 <a class="figure-zoom" href="assets/figures/figure-6-2400.webp" data-figure="6" aria-label="Enlarge Figure 6">
-  <img src="assets/figures/figure-6-1200.webp" srcset="assets/figures/figure-6-1200.webp 1200w, assets/figures/figure-6-2400.webp 2400w" sizes="(max-width: 1160px) 94vw, 1100px" width="2400" height="587" alt="Four RoboTwin 2.0 simulation tasks: Handover Mic, Place Empty Cup, Adjust Bottle, and Beat Block Hammer." loading="lazy" decoding="async">
+  <img src="assets/figures/figure-6-1200.webp" srcset="assets/figures/figure-6-1200.webp 1200w, assets/figures/figure-6-2400.webp 2400w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 964px) calc(100vw - 64px), 900px" width="2400" height="587" alt="Four RoboTwin 2.0 simulation tasks: Handover Mic, Place Empty Cup, Adjust Bottle, and Beat Block Hammer." loading="lazy" decoding="async">
   <span class="zoom-hint" aria-hidden="true">↗</span>
 </a>
 <!-- END FIGURE_6 --><figcaption><span class="figure-label">Figure 6</span> The four evaluated RoboTwin 2.0 tasks. Domain randomization varies distractors, background textures, lighting, and tabletop height to test robustness under visual changes.</figcaption></figure>
